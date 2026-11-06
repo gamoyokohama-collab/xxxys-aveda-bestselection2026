@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>XXXY'S AVEDA | BEST SELECTION 2026</title>
+<meta name="description" content="XXXY'S AVEDA BEST SELECTION｜2026.12.01〜2027.01.31。スタッフおすすめのホームケアアイテムをご紹介します。">
+<meta name="theme-color" content="#1f2c24">
+
+<!-- LINE・SNSで共有したときの表示 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="XXXY'S AVEDA">
+<meta property="og:title" content="XXXY'S AVEDA | BEST SELECTION 2026">
+<meta property="og:description" content="2026.12.01〜2027.01.31 期間限定。スタッフおすすめのホームケアアイテムをページをめくってご覧いただけます。">
+<meta property="og:url" content="https://gamoyokohama-collab.github.io/xxxys-aveda-bestselection2026/">
+<meta property="og:image" content="https://gamoyokohama-collab.github.io/xxxys-aveda-bestselection2026/img/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#1f2c24;
+    --bg-2:#2a3c31;
+    --paper:#ffffff;
+    --ink:#f1ebe0;
+    --muted:#b3ab98;
+    --accent:#c9a66b;
+    --line:rgba(241,235,224,.14);
+    --bar-h:56px;
+    --head-h:56px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--bg);color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",Meiryo,sans-serif;
+    -webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+  body{display:flex;flex-direction:column;height:100dvh;overflow:hidden;
+    background:radial-gradient(120% 80% at 50% 45%, var(--bg-2) 0%, var(--bg) 70%)}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+  /* header */
+  header{height:var(--head-h);flex:none;display:flex;align-items:center;gap:12px;
+    padding:0 16px;padding-top:env(safe-area-inset-top);border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .brand img{height:38px;width:auto;border-radius:6px;background:var(--paper);padding:2px 6px}
+  .title{font-family:"Cormorant Garamond",serif;font-weight:600;letter-spacing:.14em;
+    font-size:15px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .title small{display:block;font-family:inherit;font-weight:500;letter-spacing:.08em;
+    font-size:11.5px;color:var(--muted)}
+  @media (max-width:520px){.count{display:none}}
+  .count{margin-left:auto;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  /* stage */
+  #stage{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;padding:14px 12px}
+  #bookHost{position:relative}
+  .page{background:#fff;overflow:hidden}
+  .page img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;user-select:none;-webkit-user-drag:none}
+  .stf__parent{margin:0 auto}
+
+  /* side arrows (PC) */
+  .side{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;
+    display:grid;place-items:center;background:rgba(249,242,234,.08);border:1px solid var(--line);z-index:5;transition:background .2s}
+  .side:hover{background:rgba(249,242,234,.18)}
+  .side.prev{left:14px}.side.next{right:14px}
+  .side svg{width:20px;height:20px}
+  @media (max-width:760px){.side{display:none}}
+
+  /* hint */
+  #hint{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:6;
+    background:rgba(20,17,15,.78);color:var(--ink);font-size:13px;padding:10px 16px;border-radius:999px;
+    display:flex;align-items:center;gap:8px;white-space:nowrap;pointer-events:none;transition:opacity .6s}
+  #hint.hide{opacity:0}
+
+  /* bottom bar */
+  nav{height:var(--bar-h);flex:none;display:flex;align-items:center;justify-content:center;gap:6px;
+    padding:0 12px;padding-bottom:env(safe-area-inset-bottom);border-top:1px solid var(--line);
+    box-sizing:content-box}
+  nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    min-width:64px;height:48px;border-radius:10px;font-size:10.5px;color:var(--muted);transition:background .2s,color .2s}
+  nav button:hover,nav button:active{background:rgba(249,242,234,.08);color:var(--ink)}
+  nav button svg{width:22px;height:22px}
+  nav .pager{min-width:84px;text-align:center;font-size:14px;font-variant-numeric:tabular-nums;color:var(--ink)}
+  nav button:disabled{opacity:.3;pointer-events:none}
+
+  /* overlays */
+  .overlay{position:fixed;inset:0;z-index:50;background:#18231d;display:none;flex-direction:column}
+  .overlay.open{display:flex}
+  .ov-head{background:var(--bg);height:var(--head-h);flex:none;display:flex;align-items:center;gap:8px;padding:0 8px 0 16px;
+    padding-top:env(safe-area-inset-top);border-bottom:1px solid var(--line);font-size:14px}
+  .ov-head .sp{flex:1}
+  .ov-head button{width:44px;height:44px;border-radius:10px;display:grid;place-items:center}
+  .ov-head button:hover{background:rgba(249,242,234,.08)}
+  .ov-head svg{width:22px;height:22px}
+
+  #zoomScroll{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+  #zoomInner{display:flex;gap:6px;margin:0 auto;padding:12px;width:100%;transform-origin:0 0}
+  #zoomInner img{flex:1;min-width:0;width:100%;height:auto;display:block;background:#fff}
+  .zoomlvl{font-size:13px;color:var(--muted);min-width:44px;text-align:center;font-variant-numeric:tabular-nums}
+
+  #thumbGrid{flex:1;overflow:auto;padding:16px;display:grid;gap:14px;
+    grid-template-columns:repeat(auto-fill,minmax(110px,1fr));align-content:start}
+  #thumbGrid button{display:flex;flex-direction:column;gap:6px;align-items:center;font-size:12px;color:var(--muted)}
+  #thumbGrid img{width:100%;aspect-ratio:1800/2546;object-fit:cover;border-radius:4px;background:#fff;
+    outline:2px solid transparent;outline-offset:2px;transition:outline-color .2s}
+  #thumbGrid button.cur img{outline-color:var(--accent)}
+  #thumbGrid button.cur{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="img/logo.png" alt="XXXY'S AVEDA">
+    <div class="title">BEST SELECTION<small>2026.12.01 – 2027.01.31</small></div>
+  </div>
+  <div class="count" id="countTop"></div>
+</header>
+
+<main id="stage">
+  <button class="side prev" id="sidePrev" aria-label="前のページ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <div id="bookHost"></div>
+  <button class="side next" id="sideNext" aria-label="次のページ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+  <div id="hint">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11V5a1.5 1.5 0 013 0v5m0 0V4a1.5 1.5 0 013 0v6m0 0V6a1.5 1.5 0 013 0v8a6 6 0 01-6 6h-1a6 6 0 01-5-2.7L4 13.5a1.5 1.5 0 012.4-1.8L9 14"/></svg>
+    スワイプまたはタップでページをめくれます
+  </div>
+</main>
+
+<nav>
+  <button id="btnPrev" aria-label="前へ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 18l-6-6 6-6"/></svg>前へ</button>
+  <div class="pager" id="pager">1 / 12</div>
+  <button id="btnNext" aria-label="次へ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg>次へ</button>
+  <button id="btnZoom" aria-label="拡大">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6"/></svg>拡大</button>
+  <button id="btnList" aria-label="ページ一覧">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1"/></svg>一覧</button>
+</nav>
+
+<!-- 拡大表示 -->
+<div class="overlay" id="zoomOv" role="dialog" aria-label="拡大表示">
+  <div class="ov-head">
+    <span id="zoomLabel">拡大表示</span><span class="sp"></span>
+    <button id="zOut" aria-label="縮小"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 12h12"/></svg></button>
+    <span class="zoomlvl" id="zLvl">100%</span>
+    <button id="zIn" aria-label="拡大"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 6v12M6 12h12"/></svg></button>
+    <button id="zClose" aria-label="閉じる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div id="zoomScroll"><div id="zoomInner"></div></div>
+</div>
+
+<!-- ページ一覧 -->
+<div class="overlay" id="listOv" role="dialog" aria-label="ページ一覧">
+  <div class="ov-head">
+    <span>ページ一覧</span><span class="sp"></span>
+    <button id="lClose" aria-label="閉じる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div id="thumbGrid"></div>
+</div>
+
+<script src="page-flip.browser.js"></script>
+<script>
+(() => {
+  /* ===== 設定：ページ数を変えるときはここだけ ===== */
+  const TOTAL = 12;
+  const RATIO = 1800 / 2546;               // ページの横÷縦
+  const pad = n => String(n).padStart(2, "0");
+  const pageSrc  = i => `pages/${pad(i + 1)}.jpg`;   // めくり用
+  const zoomSrc  = i => `zoom/${pad(i + 1)}.jpg`;    // 拡大用（高解像度）
+  const thumbSrc = i => `thumbs/${pad(i + 1)}.jpg`;  // 一覧用
+
+  const $ = id => document.getElementById(id);
+  const stage = $("stage"), host = $("bookHost");
+  let flip = null, current = 0, mode = null, imgs = [];
+
+  // URLの #p=5 で特定ページから開ける
+  const m = location.hash.match(/p=(\d+)/);
+  if (m) current = Math.min(Math.max(+m[1] - 1, 0), TOTAL - 1);
+
+  function layout() {
+    const cs = getComputedStyle(stage);
+    const aw = stage.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    const ah = stage.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    const sideRoom = window.innerWidth > 760 ? 140 : 0;      // PCは左右の矢印分を空ける
+    const landscape = (aw - sideRoom) / ah >= 1.0;
+    const w = landscape ? Math.min(aw - sideRoom, ah * RATIO * 2)
+                        : Math.min(aw, ah * RATIO);
+    return { landscape, w: Math.floor(w), h: Math.floor(landscape ? w / RATIO / 2 : w / RATIO) };
+  }
+
+  function loadNear(i) {
+    for (let k = i - 2; k <= i + 4; k++) {
+      const im = imgs[k];
+      if (im && !im.src) im.src = im.dataset.src;
+    }
+  }
+
+  function build() {
+    const L = layout();
+    const key = `${L.landscape}-${L.w}-${L.h}`;
+    if (key === mode) return;
+    mode = key;
+
+    if (flip) { current = flip.getCurrentPageIndex(); flip.destroy(); }
+    host.innerHTML = "";
+    const book = document.createElement("div");
+    host.appendChild(book);
+    host.style.width = L.w + "px";
+    host.style.height = L.h + "px";
+
+    imgs = [];
+    const pages = [];
+    for (let i = 0; i < TOTAL; i++) {
+      const pg = document.createElement("div");
+      pg.className = "page";
+      pg.dataset.density = (i === 0 || i === TOTAL - 1) ? "hard" : "soft";
+      const im = document.createElement("img");
+      im.alt = `${i + 1}ページ`;
+      im.dataset.src = pageSrc(i);
+      im.decoding = "async";
+      pg.appendChild(im);
+      imgs.push(im);
+      pages.push(pg);
+    }
+    loadNear(current);
+
+    const pageW = L.landscape ? L.w / 2 : L.w;
+    flip = new St.PageFlip(book, {
+      width: 1000, height: Math.round(1000 / RATIO),
+      size: "stretch",
+      minWidth: L.landscape ? 50 : Math.ceil(L.w / 2) + 10,   // 縦長画面では1ページ表示
+      maxWidth: 4000, minHeight: 50, maxHeight: 6000,
+      showCover: true, usePortrait: true,
+      mobileScrollSupport: false, maxShadowOpacity: 0.45,
+      flippingTime: 650, startPage: current, swipeDistance: 20
+    });
+    book.style.minWidth = "0"; book.style.minHeight = "0";
+    flip.loadFromHTML(pages);
+    flip.on("flip", e => { current = e.data; update(); });
+    update();
+  }
+
+  function update() {
+    loadNear(current);
+    let label;
+    if (flip && flip.getOrientation() === "landscape" && current > 0 && current < TOTAL - 1) {
+      const a = current % 2 ? current : current - 1;
+      label = `${a + 1}-${Math.min(a + 2, TOTAL)} / ${TOTAL}`;
+    } else label = `${current + 1} / ${TOTAL}`;
+    $("pager").textContent = label;
+    $("countTop").textContent = `${TOTAL} pages`;
+    $("btnPrev").disabled = current === 0;
+    $("btnNext").disabled = current >= TOTAL - 1;
+    history.replaceState(null, "", current ? `#p=${current + 1}` : location.pathname + location.search);
+  }
+
+  const next = () => flip && flip.flipNext();
+  const prev = () => flip && flip.flipPrev();
+  $("btnNext").onclick = next; $("sideNext").onclick = next;
+  $("btnPrev").onclick = prev; $("sidePrev").onclick = prev;
+  document.addEventListener("keydown", e => {
+    if ($("zoomOv").classList.contains("open") || $("listOv").classList.contains("open")) {
+      if (e.key === "Escape") closeAll();
+      return;
+    }
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+
+  let rt;
+  window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(build, 180); });
+
+  // ヒントは最初の操作か4秒で消える
+  const hint = $("hint");
+  const hideHint = () => hint.classList.add("hide");
+  setTimeout(hideHint, 4000);
+  document.addEventListener("pointerdown", hideHint, { once: true });
+
+  /* ===== 拡大表示 ===== */
+  const zOv = $("zoomOv"), zScroll = $("zoomScroll"), zInner = $("zoomInner");
+  const LEVELS = [1, 1.5, 2, 3, 4];
+  let z = 0;
+  function visiblePages() {
+    if (flip && flip.getOrientation() === "landscape" && current > 0 && current < TOTAL - 1) {
+      const a = current % 2 ? current : current - 1;
+      return a + 1 < TOTAL - 1 ? [a, a + 1] : [a];
+    }
+    return [current];
+  }
+  function setZoom(lv, cx, cy) {
+    const old = LEVELS[z];
+    z = Math.max(0, Math.min(LEVELS.length - 1, lv));
+    const s = LEVELS[z];
+    // 中心を保ったまま拡大縮小
+    const rx = (zScroll.scrollLeft + (cx ?? zScroll.clientWidth / 2)) / zInner.offsetWidth;
+    const ry = (zScroll.scrollTop + (cy ?? zScroll.clientHeight / 2)) / zInner.offsetHeight;
+    zInner.style.width = (s * 100) + "%";
+    zScroll.scrollLeft = rx * zInner.offsetWidth - (cx ?? zScroll.clientWidth / 2);
+    zScroll.scrollTop = ry * zInner.offsetHeight - (cy ?? zScroll.clientHeight / 2);
+    $("zLvl").textContent = Math.round(s * 100) + "%";
+  }
+  function openZoom() {
+    const ps = visiblePages();
+    zInner.innerHTML = "";
+    ps.forEach(i => { const im = new Image(); im.src = zoomSrc(i); im.alt = `${i + 1}ページ`; zInner.appendChild(im); });
+    zInner.style.maxWidth = ps.length > 1 ? "none" : "820px";
+    $("zoomLabel").textContent = ps.length > 1 ? `${ps[0] + 1}-${ps[1] + 1}ページ` : `${ps[0] + 1}ページ`;
+    z = 0; zInner.style.width = "100%"; $("zLvl").textContent = "100%";
+    zScroll.scrollTo(0, 0);
+    zOv.classList.add("open");
+    // 1ページ表示のスマホでは最初から少し拡大して文字を読みやすく
+    if (ps.length === 1 && window.innerWidth < 600) requestAnimationFrame(() => { setZoom(2); zScroll.scrollLeft = 0; zScroll.scrollTop = 0; });
+  }
+  $("btnZoom").onclick = openZoom;
+  $("zIn").onclick = () => setZoom(z + 1);
+  $("zOut").onclick = () => setZoom(z - 1);
+  zScroll.addEventListener("dblclick", e => {
+    const r = zScroll.getBoundingClientRect();
+    setZoom(z < LEVELS.length - 1 ? z + 1 : 0, e.clientX - r.left, e.clientY - r.top);
+  });
+  // ピンチで拡大縮小
+  let pinch = null;
+  zScroll.addEventListener("touchstart", e => {
+    if (e.touches.length === 2) {
+      const [a, b] = e.touches;
+      pinch = { d: Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY), z };
+    }
+  }, { passive: true });
+  zScroll.addEventListener("touchmove", e => {
+    if (pinch && e.touches.length === 2) {
+      e.preventDefault();
+      const [a, b] = e.touches;
+      const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+      const step = Math.round(Math.log(d / pinch.d) / Math.log(1.45));
+      if (pinch.z + step !== z) {
+        const r = zScroll.getBoundingClientRect();
+        setZoom(pinch.z + step, (a.clientX + b.clientX) / 2 - r.left, (a.clientY + b.clientY) / 2 - r.top);
+      }
+    }
+  }, { passive: false });
+  zScroll.addEventListener("touchend", () => { pinch = null; });
+
+  /* ===== ページ一覧 ===== */
+  const grid = $("thumbGrid");
+  for (let i = 0; i < TOTAL; i++) {
+    const b = document.createElement("button");
+    b.innerHTML = `<img loading="lazy" src="${thumbSrc(i)}" alt=""><span>${i === 0 ? "表紙" : i === TOTAL - 1 ? "裏表紙" : i + 1}</span>`;
+    b.onclick = () => { closeAll(); current = i; loadNear(i); flip.turnToPage(i); update(); };
+    grid.appendChild(b);
+  }
+  $("btnList").onclick = () => {
+    [...grid.children].forEach((b, i) => b.classList.toggle("cur", visiblePages().includes(i)));
+    $("listOv").classList.add("open");
+  };
+
+  function closeAll() { zOv.classList.remove("open"); $("listOv").classList.remove("open"); }
+  $("zClose").onclick = closeAll; $("lClose").onclick = closeAll;
+
+  build();
+})();
+</script>
+</body>
+</html>
